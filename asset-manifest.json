@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/currency-conventer-reactnpm%20insat/static/css/main.33bb3612.chunk.css",
+    "main.js": "/currency-conventer-reactnpm%20insat/static/js/main.a4392fae.chunk.js",
+    "main.js.map": "/currency-conventer-reactnpm%20insat/static/js/main.a4392fae.chunk.js.map",
+    "runtime-main.js": "/currency-conventer-reactnpm%20insat/static/js/runtime-main.0db56b78.js",
+    "runtime-main.js.map": "/currency-conventer-reactnpm%20insat/static/js/runtime-main.0db56b78.js.map",
+    "static/js/2.c71548f2.chunk.js": "/currency-conventer-reactnpm%20insat/static/js/2.c71548f2.chunk.js",
+    "static/js/2.c71548f2.chunk.js.map": "/currency-conventer-reactnpm%20insat/static/js/2.c71548f2.chunk.js.map",
+    "static/js/3.f5b9aaf3.chunk.js": "/currency-conventer-reactnpm%20insat/static/js/3.f5b9aaf3.chunk.js",
+    "static/js/3.f5b9aaf3.chunk.js.map": "/currency-conventer-reactnpm%20insat/static/js/3.f5b9aaf3.chunk.js.map",
+    "index.html": "/currency-conventer-reactnpm%20insat/index.html",
+    "static/css/main.33bb3612.chunk.css.map": "/currency-conventer-reactnpm%20insat/static/css/main.33bb3612.chunk.css.map",
+    "static/js/2.c71548f2.chunk.js.LICENSE.txt": "/currency-conventer-reactnpm%20insat/static/js/2.c71548f2.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0db56b78.js",
+    "static/js/2.c71548f2.chunk.js",
+    "static/css/main.33bb3612.chunk.css",
+    "static/js/main.a4392fae.chunk.js"
+  ]
+}
