@@ -14,9 +14,9 @@
     padding: 10px 5px;
 }
 
-.form__labelText {
+.form__label {
     color: rgba(156, 33, 74, 0.973);
-    ;
+    padding: 10px;
 }
 
 .form__button {
@@ -33,9 +33,4 @@
 
 .form__button:active {
     background-color: rgba(198, 42, 94, 0.973);
-}
-
-.form__result {
-    color: rgba(156, 33, 74, 0.973);
-    text-align: center;
 }
