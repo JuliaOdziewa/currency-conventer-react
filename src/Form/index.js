@@ -1,12 +1,24 @@
 import "./index.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { currencies } from "../currencies";
 import Result from "./Result";
 
 const Form = ({ calculateResult, result }) => {
     const [currency, setCurrency] = useState(currencies[0].short);
     const [amount, setAmount] = useState("");
+    const [date, setDate] = useState();
 
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            const date = new Date();
+            setDate(date.toLocaleString("pl-PL"));
+        }, 1000);
+
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, []);
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -17,6 +29,9 @@ const Form = ({ calculateResult, result }) => {
         <form className="form" onSubmit={onSubmit}>
             <fieldset className="form__fieldset">
                 <legend className="form__legend">Kalkulator Walut</legend>
+                <p className="date">
+                    Dzisiaj jest {date}
+                </p>
                 <p>
                     <label className="form__label">
                         Przelicz z :

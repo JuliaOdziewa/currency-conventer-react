@@ -34,3 +34,8 @@
 .form__button:active {
     background-color: rgba(198, 42, 94, 0.973);
 }
+
+.date {
+    text-align: right;
+    color: grey;
+}
