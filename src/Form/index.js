@@ -1,24 +1,22 @@
 import "./index.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { currencies } from "../currencies";
 import Result from "./Result";
 
-const Form = ({ calculateResult, result }) => {
+const Form = () => {
     const [currency, setCurrency] = useState(currencies[0].short);
     const [amount, setAmount] = useState("");
-    const [date, setDate] = useState();
+    const [result, setResult] = useState();
 
+    const calculateResult = (currency, amount) => {
+        const rate = currencies.find(({ short }) => short === currency).rate;
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            const date = new Date();
-            setDate(date.toLocaleString("pl-PL"));
-        }, 1000);
-
-        return () => {
-            clearInterval(intervalId);
-        };
-    }, []);
+        setResult({
+            sourceAmount: +amount,
+            targetAmount: amount / rate,
+            currency,
+        });
+    };
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -29,9 +27,6 @@ const Form = ({ calculateResult, result }) => {
         <form className="form" onSubmit={onSubmit}>
             <fieldset className="form__fieldset">
                 <legend className="form__legend">Kalkulator Walut</legend>
-                <p className="date">
-                    Dzisiaj jest {date}
-                </p>
                 <p>
                     <label className="form__label">
                         Przelicz z :
@@ -54,7 +49,6 @@ const Form = ({ calculateResult, result }) => {
                     <select
                         value={currency}
                         onChange={({ target }) => setCurrency(target.value)}>
-
                         {currencies.map((currency => (
                             <option
                                 key={currency.short}
@@ -62,7 +56,6 @@ const Form = ({ calculateResult, result }) => {
                                 {currency.name}
                             </option>
                         )))}
-
                     </select>
                 </p>
                 <p>
