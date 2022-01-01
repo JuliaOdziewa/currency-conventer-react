@@ -1,7 +1,7 @@
-import "./index.css";
+import { Wrapper } from "./styled";
 
 const Result = ({ result }) => (
-    <p className="form__result">
+    <Wrapper>
         {result !== undefined && (
             <>
                 {(result.sourceAmount).toFixed(2)}&nbsp;PLN&nbsp;=&nbsp;
@@ -11,7 +11,7 @@ const Result = ({ result }) => (
                 </strong>
             </>
         )}
-    </p>
+    </Wrapper>
 );
 
 export default Result;

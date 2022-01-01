@@ -1,37 +1,38 @@
-.form__fieldset {
+import styled from "styled-components";
+
+export const Fieldset = styled.fieldset`
     flex-basis: 700px;
     margin: 20px;
     padding: 40px;
     border-color: rgba(128, 128, 128, 0.973);
     border-radius: 25px;
     background-color: rgb(223, 223, 223);
-}
+`;
 
-.form__legend {
+export const Legend = styled.legend`
     text-align: center;
     color: white;
     background-color: rgba(156, 33, 74, 0.973);
     padding: 10px 5px;
-}
+`;
 
-.form__label {
+export const Label = styled.label`
     color: rgba(156, 33, 74, 0.973);
     padding: 10px;
-}
+`;
 
-.form__button {
+export const Button = styled.button`
     border: none;
     background-color: rgba(156, 33, 74, 0.973);
     color: white;
     width: 100%;
     padding: 5px;
-}
 
-.form__button:hover {
-    background-color: rgba(177, 37, 84, 0.973);
-}
+    &:hover {
+        background-color: rgba(177, 37, 84, 0.973);
+    }
 
-.form__button:active {
+    &:active {
     background-color: rgba(198, 42, 94, 0.973);
-}
-
+    }
+`;

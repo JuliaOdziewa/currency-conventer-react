@@ -1,8 +1,8 @@
-import "./index.css";
 import { useState } from "react";
 import { currencies } from "../currencies";
 import Result from "./Result";
 import Clock from "../Clock";
+import { Fieldset, Label, Legend, Button } from "./styled";
 
 const Form = () => {
     const [currency, setCurrency] = useState(currencies[0].short);
@@ -26,13 +26,13 @@ const Form = () => {
 
     return (
         <form className="form" onSubmit={onSubmit}>
-            <fieldset className="form__fieldset">
+            <Fieldset>
                 <Clock />
-                <legend className="form__legend">Kalkulator Walut</legend>
+                <Legend>Kalkulator Walut</Legend>
                 <p>
-                    <label className="form__label">
+                    <Label>
                         Przelicz z :
-                    </label>
+                    </Label>
                     <input
                         value={amount}
                         onChange={({ target }) => setAmount(target.value)}
@@ -43,11 +43,11 @@ const Form = () => {
                         required />
                 </p>
                 <p>
-                    <label className="form__label">
+                    <Label>
                         <span className="form__labelText">
                             Przelicz na :
                         </span>
-                    </label>
+                    </Label>
                     <select
                         value={currency}
                         onChange={({ target }) => setCurrency(target.value)}>
@@ -61,12 +61,12 @@ const Form = () => {
                     </select>
                 </p>
                 <p>
-                    <button className="form__button">
+                    <Button>
                         Przelicz
-                    </button>
+                    </Button>
                 </p>
                 <Result result={result} />
-            </fieldset>
+            </Fieldset>
         </form>
     );
 };
