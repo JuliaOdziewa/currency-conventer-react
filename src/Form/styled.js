@@ -17,22 +17,22 @@ export const Legend = styled.legend`
 `;
 
 export const Label = styled.label`
-    color: rgba(156, 33, 74, 0.973);
+    color: ${({ theme }) => theme.color.lipstick};
     padding: 10px;
 `;
 
 export const Button = styled.button`
     border: none;
-    background-color: rgba(156, 33, 74, 0.973);
+    background-color: ${({ theme }) => theme.color.lipstick};
     color: white;
     width: 100%;
     padding: 5px;
 
     &:hover {
-        background-color: rgba(177, 37, 84, 0.973);
+        background-color: ${({ theme }) => theme.color.oldRose};
     }
 
     &:active {
-    background-color: rgba(198, 42, 94, 0.973);
+    background-color: ${({ theme }) => theme.color.lightOldRose};
     }
 `;
