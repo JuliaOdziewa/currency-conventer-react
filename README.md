@@ -20,6 +20,8 @@ With this currency counter you can check the amount of PLN you can get in USD, E
 - JS/ES6+
 - REACT
 - BEM
+- REACT HOOKS
+- STYLED COMPONENTS
 
 
 ## Available Scripts
