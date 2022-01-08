@@ -29,10 +29,10 @@ export const Button = styled.button`
     padding: 5px;
 
     &:hover {
-        background-color: ${({ theme }) => theme.color.oldRose};
+        filter: brightness(110%);
     }
 
     &:active {
-    background-color: ${({ theme }) => theme.color.lightOldRose};
+        filter: brightness(120%);
     }
 `;
