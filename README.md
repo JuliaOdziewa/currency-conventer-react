@@ -1,8 +1,6 @@
 # Currency Conventer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-![](currency-conventer-readme.png)
+![](C:\dev\currency-conventer-react\currency-conventer.png)
 
 ## Demo
 
@@ -10,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Description
 
-With this currency counter you can check the amount of PLN you can get in USD, EUR, HUF and UAH.
+With this currency counter you can check the amount of PLN you can get in USD, EUR, HUF and UAH. Now you can also see what time is it.
 
 ## Technologies
 
