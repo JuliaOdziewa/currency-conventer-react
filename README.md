@@ -1,6 +1,6 @@
 # Currency Conventer
 
-![](C:\dev\currency-conventer-react\currency-conventer.png)
+![](currency-conventer.png)
 
 ## Demo
 
