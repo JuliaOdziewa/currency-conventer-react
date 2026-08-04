@@ -2,7 +2,7 @@ import { useState } from "react";
 import { currencies } from "../currencies";
 import Result from "./Result";
 import Clock from "../Clock";
-import { Fieldset, Label, Legend, Button } from "./styled";
+import { Fieldset, Label, Legend, Button, Input,  Wrapper } from "./styled";
 
 const Form = () => {
     const [currency, setCurrency] = useState(currencies[0].short);
@@ -29,11 +29,11 @@ const Form = () => {
             <Fieldset>
                 <Clock />
                 <Legend>Kalkulator Walut</Legend>
-                <p>
+                <Wrapper>
                     <Label>
                         Przelicz z :
                     </Label>
-                    <input
+                    <Input
                         value={amount}
                         onChange={({ target }) => setAmount(target.value)}
                         type="number"
@@ -41,14 +41,14 @@ const Form = () => {
                         min="0.01"
                         placeholder="Kwota w PLN"
                         required />
-                </p>
-                <p>
+                </Wrapper>
+                <Wrapper>
                     <Label>
                         <span className="form__labelText">
                             Przelicz na :
                         </span>
                     </Label>
-                    <select
+                    <Input as="select"
                         value={currency}
                         onChange={({ target }) => setCurrency(target.value)}>
                         {currencies.map((currency => (
@@ -58,8 +58,8 @@ const Form = () => {
                                 {currency.name}
                             </option>
                         )))}
-                    </select>
-                </p>
+                    </Input>
+                </Wrapper>
                 <p>
                     <Button>
                         Przelicz

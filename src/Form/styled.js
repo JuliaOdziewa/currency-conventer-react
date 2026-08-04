@@ -13,7 +13,8 @@ export const Legend = styled.legend`
     text-align: center;
     color: white;
     background-color: rgba(156, 33, 74, 0.973);
-    padding: 10px 5px;
+    padding: 15px;
+    border-radius: 25px;
 `;
 
 export const Label = styled.label`
@@ -26,7 +27,9 @@ export const Button = styled.button`
     background-color: ${({ theme }) => theme.color.lipstick};
     color: white;
     width: 100%;
-    padding: 5px;
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 25px;
 
     &:hover {
         filter: brightness(110%);
@@ -36,3 +39,14 @@ export const Button = styled.button`
         filter: brightness(120%);
     }
 `;
+
+export const Input = styled.input`
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+`;
+
+export const Wrapper = styled.p`
+    display: grid;
+    grid-template-columns: auto 1fr;
+`
