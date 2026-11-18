@@ -1,71 +1,98 @@
 import { useState } from "react";
-import { currencies } from "../currencies";
+// import { currencies } from "../currencies";
 import Result from "./Result";
 import Clock from "../Clock";
-import { Fieldset, Label, Legend, Button, Input,  Wrapper } from "./styled";
+import { Fieldset, Label, Legend, Button, Input, Wrapper, Loading, Failure } from "./styled";
+import { useRatesData } from "./useRatesData";
 
 const Form = () => {
-    const [currency, setCurrency] = useState(currencies[0].short);
-    const [amount, setAmount] = useState("");
     const [result, setResult] = useState();
+    const ratesData = useRatesData();
+
 
     const calculateResult = (currency, amount) => {
-        const rate = currencies.find(({ short }) => short === currency).rate;
+        const rate = ratesData.rates[currency].value;
 
         setResult({
             sourceAmount: +amount,
-            targetAmount: amount / rate,
+            targetAmount: amount * rate,
             currency,
         });
     };
+
+    const [currency, setCurrency] = useState("EUR");
+    const [amount, setAmount] = useState("");
 
     const onSubmit = (event) => {
         event.preventDefault();
         calculateResult(currency, amount);
     };
 
+    setTimeout(() => (<Loading>Przygotowujemy dla ciebie aplikacje</Loading>), [5000])
+
     return (
         <form className="form" onSubmit={onSubmit}>
             <Fieldset>
-                <Clock />
-                <Legend>Kalkulator Walut</Legend>
-                <Wrapper>
-                    <Label>
-                        Przelicz z :
-                    </Label>
-                    <Input
-                        value={amount}
-                        onChange={({ target }) => setAmount(target.value)}
-                        type="number"
-                        step="any"
-                        min="0.01"
-                        placeholder="Kwota w PLN"
-                        required />
-                </Wrapper>
-                <Wrapper>
-                    <Label>
-                        <span className="form__labelText">
-                            Przelicz na :
-                        </span>
-                    </Label>
-                    <Input as="select"
-                        value={currency}
-                        onChange={({ target }) => setCurrency(target.value)}>
-                        {currencies.map((currency => (
-                            <option
-                                key={currency.short}
-                                value={currency.short}>
-                                {currency.name}
-                            </option>
-                        )))}
-                    </Input>
-                </Wrapper>
-                <p>
-                    <Button>
-                        Przelicz
-                    </Button>
-                </p>
-                <Result result={result} />
+                {ratesData.state === "loading"
+                    ? (
+                        <Loading>
+                            Pobieramy najnowsze kursy walut
+                        </Loading>
+                    )
+                    : (
+                        ratesData.state === "error" ? (
+                            <Failure>
+                                Wystąpił błąd
+                            </Failure>
+                        ) : (
+                            <>
+                                <Clock />
+                                <Legend>Kalkulator Walut</Legend>
+                                <Wrapper>
+                                    <Label>
+                                        Przelicz z :
+                                    </Label>
+                                    <Input
+                                        value={amount}
+                                        onChange={({ target }) => setAmount(target.value)}
+                                        type="number"
+                                        step="any"
+                                        min="0.01"
+                                        placeholder="Kwota w PLN"
+                                        required />
+                                </Wrapper>
+                                <Wrapper>
+                                    <Label>
+                                        <span className="form__labelText">
+                                            Przelicz na :
+                                        </span>
+                                    </Label>
+                                    <Input as="select"
+                                        value={currency}
+                                        onChange={({ target }) => setCurrency(target.value)}>
+                                        {Object.keys(ratesData.rates).map(((currency) => (
+                                            <option
+                                                key={currency}
+                                                value={currency}>
+                                                {currency}
+                                            </option>
+                                        )))}
+                                    </Input>
+                                </Wrapper>
+                                <p>
+                                    <Button>
+                                        Przelicz
+                                    </Button>
+                                </p>
+                                <p>
+                                    Data aktualizacji kursów:{" "}
+                                    {ratesData.date
+                                        ? new Date(ratesData.date).toLocaleDateString("pl-PL")
+                                        : "Brak informacji"}
+                                </p>
+                                <Result result={result} />
+                            </>))
+                }
             </Fieldset>
         </form>
     );

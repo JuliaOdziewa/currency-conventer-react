@@ -49,4 +49,12 @@ export const Input = styled.input`
 export const Wrapper = styled.p`
     display: grid;
     grid-template-columns: auto 1fr;
-`
+`;
+
+export const Loading = styled.p`
+    color: ${({ theme }) => theme.color.red};
+`;
+
+export const Failure = styled.p`
+color: ${({ theme }) => theme.color.oldRose};
+`;
