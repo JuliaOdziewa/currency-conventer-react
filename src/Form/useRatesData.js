@@ -10,7 +10,11 @@ export const useRatesData = () => {
     useEffect(() => {
         const fetchRates = async () => {
             try {
-                const response = await fetch('https://api.currencyapi.com/v3/latest?currencies=EUR%2CUSD%2CHUF%2CUAH&apikey=cur_live_ipwYjxLCrvoif9JpxPn36raTKpo7YkY0w1PmLCxl&base_currency=PLN')
+                const response = await fetch(
+                    process.env.PUBLIC_URL + "/currencies.json"
+                );
+
+                console.log(response)
 
                 if (!response.ok) {
                     throw new Error(response.statusText);
